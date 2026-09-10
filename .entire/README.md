@@ -2,6 +2,8 @@
 
 Marga uses three repository-authored trail runners. Configurations live in `runners/` and load from the default branch, `main`.
 
+The active readiness work is tracked in [Trail 1](https://entire.io/et/marga/marga/trails/1), with the acceptance checklist in [docs/READINESS.md](../docs/READINESS.md).
+
 | Runner | Purpose | Output |
 | --- | --- | --- |
 | `trail-review` | Review concrete gameplay, input, and local-server regressions | Findings with severity and file/line evidence |
@@ -21,7 +23,7 @@ Gate enforcement is enabled for the personal Entire-native Marga repository. Gat
 | Findings | Blocking; unresolved medium- or high-severity agent findings prevent merge |
 | Up to Date | Blocking; the branch must be current with its base |
 | Checks | Blocking; require success for checks marked required or without requirement metadata; no named CI check is configured yet |
-| Human Approval | Disabled for the initial personal workflow; enable when a separate reviewer is designated |
+| Human Approval | Blocking; at least one human reviewer, including the trail author; new pushes invalidate previous approvals |
 
 The confidence and security scores are advisory monitors, not numeric merge gates. A passing Node test run does not prove that rendering, touch controls, audio, or visual branding have been checked. The checks gate does not turn these local commands into hosted CI jobs.
 
