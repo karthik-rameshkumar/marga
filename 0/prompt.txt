@@ -1,0 +1,13 @@
+I think the logo, isn't accurate. We need to fix that first :) and then let's create a first commit.
+
+---
+
+Push to origin in an entire-native repository
+
+---
+
+Don't save it in entirehq, just save it on my personal space on an entire native repo :)
+
+---
+
+Make it a public repoisitory in entire, ensure that the readme is well documented and also ensure that the checkpoints and sessions are captured before you push :)
