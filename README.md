@@ -135,7 +135,7 @@ Google Fonts supplies Barlow Condensed, DM Sans, and IBM Plex Mono when online. 
 
 ## Entire Checkpoints and Sessions
 
-This repository enables Entire with the `git-refs` checkpoint store. Agent hooks capture session activity, commit hooks associate a checkpoint with a code commit, and the pre-push hook sends the captured checkpoint data alongside a Git push. Commits carrying captured work include an `Entire-Checkpoint` trailer.
+This repository enables Entire with the `git-refs` checkpoint store. Agent hooks capture session activity, commit hooks associate a checkpoint with a code commit, and the pre-push hook sends the captured checkpoint data alongside a push to the Entire remote. Commits carrying captured work include an `Entire-Checkpoint` trailer.
 
 For a new checkout, verify your Entire integration before starting an agent session. Git does not transfer installed `.git/hooks` scripts when cloning. Enable tracking and install the integration for the agent you use:
 
@@ -166,7 +166,7 @@ git fetch origin 'refs/entire/checkpoints/*:refs/entire/checkpoints/*'
 entire checkpoint list
 ```
 
-Before pushing, confirm the commit has its checkpoint and the expected session content. The installed Entire pre-push hook handles uploading the checkpoint refs. You can compare the local and remote refs afterward:
+Before pushing, confirm the commit has its checkpoint and the expected session content. The installed Entire pre-push hook handles uploading the checkpoint refs to Entire. GitHub requires the explicit checkpoint push shown below. You can compare the local and remote refs afterward:
 
 ```sh
 git for-each-ref refs/entire/checkpoints/
@@ -184,9 +184,10 @@ In the maintainer’s checkout, `origin` points to Entire and `github` points to
 ```sh
 git push origin main
 git push github main
+git push github 'refs/entire/checkpoints/*:refs/entire/checkpoints/*'
 ```
 
-The installed Entire pre-push hook uploads checkpoint refs to each destination. A push to one remote does not automatically update the other; there is no scheduled mirror service. A fresh GitHub clone uses GitHub as its own `origin`, so inspect `git remote -v` before using the maintainer commands above.
+The final command copies the checkpoint namespace to GitHub; pushing `main` alone does not include it. A push to one remote does not automatically update the other; there is no scheduled mirror service. A fresh GitHub clone uses GitHub as its own `origin`, so inspect `git remote -v` before using the maintainer commands above.
 
 ## Troubleshooting
 
