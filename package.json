@@ -1,0 +1,14 @@
+{
+  "name": "marga",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Marvin: The Long Way Home. An Entire multiverse arcade adventure.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node --test",
+    "check": "node --check src/game.js && node --check src/main.js && node --check server.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

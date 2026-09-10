@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101714" />
+    <meta name="description" content="A reluctant robot. A very long commute. Guide Marvin home through the Entire multiverse in this cosmic arcade shooter." />
+    <title>Marvin: The Long Way Home · Entire Arcade</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="masthead">
+        <a class="brand" href="./" aria-label="Entire Arcade home"><img class="brand-logo" src="assets/entire-logo.svg" alt="Entire" width="122" height="30" /><span class="brand-divider"></span><span class="arcade">ARCADE</span></a>
+        <span class="edition">TRANSMISSION 001 <span> / </span> THE MARVIN CHRONICLES</span>
+        <span class="online"><i></i> ALL SYSTEMS MOSTLY FINE</span>
+      </header>
+
+      <main>
+        <div class="page-heading"><div><p class="eyebrow">AN ENTIRELY UNNECESSARY SPACE ADVENTURE</p><h1>The Long Way Home<span>↗</span></h1></div><span class="version">1 PLAYER <b>·</b> INFINITE EXASPERATION</span></div>
+        <div class="arcade-layout">
+          <section class="cabinet" aria-label="Marvin arcade game">
+            <div class="hud"><div><span>SCORE</span><strong id="score">000000</strong></div><div class="high-score"><span>PERSONAL BEST</span><strong id="best">000000</strong></div><div class="hull"><span>HULL INTEGRITY</span><strong id="lives" aria-label="3 lives">▰ ▰ ▰</strong></div></div>
+            <div class="screen" id="screen">
+              <canvas id="game" width="960" height="640" tabindex="0" aria-label="Marvin space shooter. Move with arrow keys or A and D. Hold Space to fire. Shift opens a wormhole. P pauses."></canvas>
+              <div class="screen-corners" aria-hidden="true"></div>
+              <div class="screen-id" aria-hidden="true">M.R.V.N. // FLIGHT DECK <span>LIVE FEED ◉</span></div>
+              <div class="overlay" id="overlay">
+                <div class="intro" id="intro">
+                  <span class="tag">LOST IN THE MULTIVERSE</span>
+                  <h2>MARVIN<span>THE LONG WAY HOME</span></h2>
+                  <p>A reluctant robot. A very long commute.<br>And absolutely no intention of saving the universe.</p>
+                  <button class="launch" id="launch">LET’S GET THIS OVER WITH <span>↗</span></button>
+                  <span class="start-hint">PRESS ENTER TO BEGIN</span>
+                </div>
+                <div class="result" id="result" hidden><span class="tag" id="result-tag"></span><h2 id="result-title"></h2><p id="result-copy"></p><button class="launch" id="restart">ANOTHER GO, THEN <span>↗</span></button></div>
+              </div>
+              <div class="wave-banner" id="wave-banner" aria-live="polite"></div>
+              <div class="screen-bottom"><span id="sector-label">SECTOR 01 / THE CONSORTIUM</span><span id="weapon-label">STANDARD ISSUE DISCONTENT</span></div>
+            </div>
+            <div class="console"><div class="wormhole-indicator"><span class="wormhole-icon">◎</span><div><span>WORMHOLE</span><strong id="charges">01 CHARGE</strong></div><kbd>SHIFT</kbd></div><div class="clankies"><span class="clankie-icon">✧</span><strong id="clankies">00</strong><span>CLANKIES</span></div><div class="console-buttons"><button id="sound" aria-label="Turn sound on" aria-pressed="false" title="Toggle sound">♪ <span>SOUND OFF</span></button><button id="pause" aria-label="Pause game" title="Pause (P)" disabled>Ⅱ</button><button id="fullscreen" aria-label="Enter fullscreen" title="Fullscreen">⛶</button></div></div>
+          </section>
+
+          <aside>
+            <section class="mission"><p class="eyebrow"><i></i> YOUR HIGHLY RELUCTANT GUIDE</p><div class="portrait"><canvas id="portrait" width="400" height="270" aria-label="Marvin, a small wheeled robot with glowing eyes"></canvas><span class="portrait-id">UNIT M-001</span><span class="portrait-cross">+</span></div><div class="character-title"><h2>Meet Marvin.</h2><span>STATUS: UNIMPRESSED</span></div><p>A brain with its own postal code.<br>A weakness for metallic snacks.<br>He knows the way. Apparently.</p></section>
+            <section class="route"><div class="section-heading"><h3>The Way Home</h3><span>05 SECTORS</span></div><ol id="route"><li class="current"><span>01</span><div>The Consortium<small>YOU ARE HERE</small></div><b>↗</b></li><li><span>02</span><div>Cosmic Motorway</div></li><li><span>03</span><div>The Wormhole</div></li><li><span>04</span><div>The Mirror</div></li><li><span>05</span><div>Entire<small>A PLACE TO BUILD. FINALLY.</small></div><b>✧</b></li></ol></section>
+            <section class="how-to"><h3>Flight Manual</h3><div><span>Steer</span><span><kbd>←</kbd> <kbd>→</kbd> <em>or</em> <kbd>A</kbd> <kbd>D</kbd></span></div><div><span>Fire</span><kbd>SPACE</kbd></div><div><span>Clear incoming fire</span><kbd>SHIFT</kbd></div><div><span>Take a moment</span><kbd>P</kbd></div><p>Collect clankies for a spread shot.<br>Every 6 earns a wormhole charge.</p></section>
+          </aside>
+        </div>
+        <div class="touch-controls" aria-label="Touch controls"><button id="left" aria-label="Steer left">←</button><button id="right" aria-label="Steer right">→</button><button id="warp">◎ WARP</button><button id="fire">FIRE ↟</button></div>
+        <section class="comms" aria-label="Marvin’s communications"><div class="comms-label"><span class="signal">▂▄▆</span> MARVIN, ON COMMS</div><p id="quote" aria-live="polite">“I was having a perfectly adequate nap. Then you arrived.”</p><span class="comms-end">END TRANSMISSION _</span></section>
+      </main>
+      <footer><span>BUILT IN THE ENTIRE MULTIVERSE</span><span>PLEASE SILENCE YOUR CELLPHONES BEFORE WORMHOLE TRANSIT. <b>✳</b></span></footer>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
