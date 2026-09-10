@@ -175,6 +175,10 @@ git ls-remote origin 'refs/entire/checkpoints/*'
 
 The repository and its published checkpoint history are public on Entire and GitHub. Review captured content before publishing future work. Entire’s current public visibility permits read access to authenticated Entire users; the GitHub mirror allows public browsing and cloning without an Entire account. Write access remains restricted.
 
+## Entire Trails
+
+The personal Entire repository has a Marvin readiness trail, three review runners, and merge gates. See [.entire/README.md](.entire/README.md) for the runner responsibilities, permission limits, gate behavior, and manual execution workflow.
+
 ## GitHub Mirror
 
 [karthik-rameshkumar/marga](https://github.com/karthik-rameshkumar/marga) mirrors the game’s `main` branch and captured Entire checkpoint refs. Entire remains the primary repository.
