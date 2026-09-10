@@ -2,11 +2,21 @@
 
 A Galaga-inspired browser game starring Marvin, Entire’s reluctant robot guide. Escort the developers through five sectors of the multiverse, collect metallic snacks, and get everyone home. Marvin would like to return to his nap.
 
-The repository is named **Marga**. It lives in a personal Entire project as a native Entire repository, with code and agent checkpoints stored together. The game runs locally in a browser; publishing the repository does not host a playable website.
+The repository is named **Marga**. Its primary home is a personal Entire project, with code and agent checkpoints stored together. A [public GitHub mirror](https://github.com/karthik-rameshkumar/marga) provides another way to browse and clone the source. The game runs locally in a browser; publishing the repository does not host a playable website.
 
 ## Quick Start
 
-You need Node.js 20 or newer and a modern browser with Canvas 2D support. Cloning from Entire also requires Git, the Entire CLI, and the `git-remote-entire` transport on your `PATH`. See the [Entire documentation](https://docs.entire.io/overview) for installation and account setup.
+You need Git, Node.js 20 or newer, and a modern browser with Canvas 2D support. Clone from GitHub and start the game:
+
+```sh
+git clone https://github.com/karthik-rameshkumar/marga.git
+cd marga
+npm run dev
+```
+
+Open [localhost:5173](http://localhost:5173). There are no npm dependencies to install and no build step. If you already have the source, only `npm run dev` is needed. Stop the server with Ctrl+C.
+
+To clone directly from Entire instead, install the Entire CLI and the `git-remote-entire` transport on your `PATH`, then run:
 
 ```sh
 entire login
@@ -15,7 +25,7 @@ cd marga
 npm run dev
 ```
 
-Open [localhost:5173](http://localhost:5173). There are no npm dependencies to install and no build step. If you already have the source, only `npm run dev` is needed. Stop the server with Ctrl+C.
+See the [Entire documentation](https://docs.entire.io/overview) for installation and account setup. The Entire CLI is optional for playing a GitHub checkout; it is used for session tracking and checkpoint inspection.
 
 To use another port:
 
@@ -163,7 +173,20 @@ git for-each-ref refs/entire/checkpoints/
 git ls-remote origin 'refs/entire/checkpoints/*'
 ```
 
-The repository is public on Entire, including its published checkpoint history. Review captured content before publishing future work. Entire’s current public visibility permits read access to authenticated Entire users; write access remains restricted.
+The repository and its published checkpoint history are public on Entire and GitHub. Review captured content before publishing future work. Entire’s current public visibility permits read access to authenticated Entire users; the GitHub mirror allows public browsing and cloning without an Entire account. Write access remains restricted.
+
+## GitHub Mirror
+
+[karthik-rameshkumar/marga](https://github.com/karthik-rameshkumar/marga) mirrors the game’s `main` branch and captured Entire checkpoint refs. Entire remains the primary repository.
+
+In the maintainer’s checkout, `origin` points to Entire and `github` points to GitHub. Publish subsequent commits to both remotes:
+
+```sh
+git push origin main
+git push github main
+```
+
+The installed Entire pre-push hook uploads checkpoint refs to each destination. A push to one remote does not automatically update the other; there is no scheduled mirror service. A fresh GitHub clone uses GitHub as its own `origin`, so inspect `git remote -v` before using the maintainer commands above.
 
 ## Troubleshooting
 
