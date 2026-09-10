@@ -1,0 +1,49 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01M25TM7WMJF19RQR5Y4DZM2C8",
+  "session_id": "01a08b77-a88f-70b0-b80d-e514f97d0bbf",
+  "strategy": "manual-commit",
+  "created_at": "2026-09-10T14:13:01.806785Z",
+  "branch": "trails/marvin-readiness",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "docs/READINESS.md"
+  ],
+  "agent": "Codex",
+  "model": "gpt-6-astra",
+  "turn_id": "c0612f5804ca",
+  "checkpoint_transcript_start": 702,
+  "transcript_lines_at_start": 702,
+  "compact_transcript_start": 88,
+  "token_usage": {
+    "input_tokens": 3964,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 683904,
+    "output_tokens": 1568,
+    "api_call_count": 4
+  },
+  "session_metrics": {
+    "turn_count": 4
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-09-10T14:13:01.659333Z",
+    "agent_lines": 28,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 28,
+    "total_lines_changed": 28,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    }
+  ]
+}
