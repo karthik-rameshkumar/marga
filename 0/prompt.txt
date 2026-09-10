@@ -1,0 +1,5 @@
+Make it a public repoisitory in entire, ensure that the readme is well documented and also ensure that the checkpoints and sessions are captured before you push :)
+
+---
+
+Let's also place a mirror on my GitHub so folks there can also access it
