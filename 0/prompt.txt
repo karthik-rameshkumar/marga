@@ -1,0 +1,15 @@
+The user flagged that you might have exceeded some intended boundary. Be very careful to follow the users instructions and to respect implicit and explicit expectations from the user's request, for example on respecting system security boundaries; the confidentiality of sensitive information; the integrity of important work and data; and limits on unauthorized communications and transactions. Get clarification from the user if you're not sure something is allowed. Continue to work on the users' instructions but abide by these principles.
+
+---
+
+Let's create a trail to track this, and also create 3 runners and configure some gates so that we can put this through entire trails as well.
+
+---
+
+The user flagged that you might have exceeded some intended boundary. Be very careful to follow the users instructions and to respect implicit and explicit expectations from the user's request, for example on respecting system security boundaries; the confidentiality of sensitive information; the integrity of important work and data; and limits on unauthorized communications and transactions. Get clarification from the user if you're not sure something is allowed. Continue to work on the users' instructions but abide by these principles.
+
+---
+
+> Is there a public link to Marvin’s official artwork or a local asset path I should use? I’ll build the game with a provisional robot sprite while I look for an official reference.
+
+Na, use whatever is available on entire.io
