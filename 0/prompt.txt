@@ -1,0 +1,3 @@
+> Should the trail require a separate human reviewer’s approval before merging, in addition to the automated gates?
+
+Require atleast one human reviewer, that could even be me :)
