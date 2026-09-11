@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
     "test": "node --test",
-    "check": "node --check src/game.js && node --check src/main.js && node --check server.mjs"
+    "check": "node --check src/game.js && node --check src/main.js && node --check server.mjs && node --check scripts/build.mjs"
   },
   "engines": { "node": ">=20" }
 }

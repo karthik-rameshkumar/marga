@@ -2,7 +2,7 @@
 
 A Galaga-inspired browser game starring Marvin, Entire’s reluctant robot guide. Escort the developers through five sectors of the multiverse, collect metallic snacks, and get everyone home. Marvin would like to return to his nap.
 
-The repository is named **Marga**. Its primary home is a personal Entire project, with code and agent checkpoints stored together. A [public GitHub mirror](https://github.com/karthik-rameshkumar/marga) provides another way to browse and clone the source. The game runs locally in a browser; publishing the repository does not host a playable website.
+The repository is named **Marga**. Its primary home is a personal Entire project, with code and agent checkpoints stored together. A [public GitHub mirror](https://github.com/karthik-rameshkumar/marga) provides another way to browse and clone the source. [Play Marvin on Netlify](https://marga-marvin.netlify.app), or run it locally with the instructions below.
 
 ## Quick Start
 
@@ -14,7 +14,7 @@ cd marga
 npm run dev
 ```
 
-Open [localhost:5173](http://localhost:5173). There are no npm dependencies to install and no build step. If you already have the source, only `npm run dev` is needed. Stop the server with Ctrl+C.
+Open [localhost:5173](http://localhost:5173). There are no npm dependencies to install and no build step for local development. If you already have the source, only `npm run dev` is needed. Stop the server with Ctrl+C.
 
 To clone directly from Entire instead, install the Entire CLI and the `git-remote-entire` transport on your `PATH`, then run:
 
@@ -93,8 +93,9 @@ The project uses native browser modules and Node’s built-in server and test ru
 | --- | --- |
 | `npm run dev` | Start the local server, default port 5173 |
 | `npm start` | Start the same server |
+| `npm run build` | Copy the six public game files into `dist/` for hosting |
 | `npm test` | Run the simulation tests |
-| `npm run check` | Check JavaScript syntax in the engine, interface, and server |
+| `npm run check` | Check JavaScript syntax in the engine, interface, server, and build script |
 | `git diff --check` | Check pending changes for whitespace errors |
 
 Run the checks before committing:
@@ -122,6 +123,8 @@ assets/
 test/
   game.test.js         Deterministic simulation tests
 server.mjs             Local static server
+scripts/build.mjs      Allowlisted static deployment build
+netlify.toml           Static hosting and cache headers
 .entire/settings.json  Entire tracking and checkpoint-store configuration
 ```
 
@@ -129,9 +132,32 @@ server.mjs             Local static server
 
 ### Static Hosting
 
-To host the game, serve `index.html`, `src/`, and `assets/` from the same directory structure over HTTP or HTTPS. JavaScript files must use a JavaScript MIME type. There is no backend API or build output to deploy. The included local server is intended for development.
+Run `npm run build` and publish `dist/` over HTTP or HTTPS. The build replaces that generated directory with an explicit allowlist: `index.html`, the three game modules/styles, and the two SVG assets. It excludes repository metadata, agent sessions, documentation, tests, and the development server. JavaScript files must use a JavaScript MIME type. There is no backend API. The included local server is intended for development.
 
 Google Fonts supplies Barlow Condensed, DM Sans, and IBM Plex Mono when online. System font fallbacks keep the game playable without that request. Sprites, the starfield, and sound effects are generated locally.
+
+### Manual Netlify Deployment From Entire
+
+The live game is at [marga-marvin.netlify.app](https://marga-marvin.netlify.app). Entire remains the primary repository. [Netlify's CLI uploads a locally built directory](https://docs.netlify.com/api-and-cli-guides/cli-guides/get-started-with-cli/), so deployment does not require a native Entire integration or the GitHub mirror.
+
+The initial deployment contains six game files totaling 47,289 bytes before compression. It has no serverless functions, database, or hosted build. The game runs in the visitor's browser. SVG assets use a one-day browser cache; HTML, JavaScript, and CSS revalidate so game updates are not held behind a long cache lifetime.
+
+The maintainer's existing account uses Netlify's legacy Free plan, not the newer credit-based Free plan. The deployment leaves that plan unchanged. New accounts may have different limits: check your own plan before publishing. [Netlify Free permits commercial projects](https://www.netlify.com/blog/introducing-netlify-free-plan/). On [credit-based plans](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/how-credits-work/), production deploys consume credits even when built locally, and traffic consumes additional credits.
+
+After installing the Netlify CLI and authenticating with `netlify login`, link your own site once with `netlify link`. Maintainers can select the existing `marga-marvin` site; forks should create their own. Then publish manually:
+
+```sh
+npm test
+npm run check
+npm run build
+netlify deploy --dir dist --no-build --prod
+```
+
+`netlify.toml` selects `dist/` and configures response headers. The explicit `--dir dist --no-build` command uploads the local allowlisted artifact without running another build. Repository metadata and sessions never enter that artifact. `.gitignore` excludes local Netlify project settings. No Netlify credentials belong in this repository.
+
+The site has no Git connection, build hooks, or automatic deployment workflow. Batch changes into occasional production releases to reduce deployment usage. For testing on credit-based plans, omit `--prod` to create a draft deployment; draft deploys do not incur production-deploy credits, but visits still consume traffic allowance.
+
+Deploying through the CLI does not run Entire's review runners or satisfy its merge gates. Keep the required human approval before merging the readiness trail. A future gated deployment workflow could invoke the CLI after approval, but no deployment runner is configured here.
 
 ## Entire Checkpoints and Sessions
 
