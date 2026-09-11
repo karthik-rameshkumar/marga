@@ -1,0 +1,19 @@
+> Should the trail require a separate human reviewer’s approval before merging, in addition to the automated gates?
+
+Require atleast one human reviewer, that could even be me :)
+
+---
+
+No runners triggered yet. is that expected?
+
+---
+
+Let's do one run now first. I don't want to auto just yet
+
+---
+
+Let's get a deploy to vercel on the hobbly plan now started? Can we deploy to vercel fron Entire by any way?
+
+---
+
+How about netflify free? does that allow commercial use?

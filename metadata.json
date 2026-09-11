@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.9.0",
+  "checkpoint_id": "01M27BVFTC5YK1BPNGA1P7GM34",
+  "strategy": "manual-commit",
+  "branch": "trails/marvin-readiness",
+  "checkpoints_count": 5,
+  "files_touched": [
+    ".gitignore",
+    "README.md",
+    "netlify.toml",
+    "package.json",
+    "scripts/build.mjs"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 132707,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 7059456,
+    "output_tokens": 12051,
+    "api_call_count": 55
+  }
+}
